@@ -31,7 +31,7 @@ SRC
 
 
 
-Libararies Used: 
+Main Libararies Used:
 ---------------------------------
 1. apache-log4j-1.2.17 --- For Logging 
 2. jxl-2.6.12.jar --- For Reading Excel file.
@@ -44,5 +44,9 @@ How to Run
 It is very simple to run as mentioned below.
 1. Clone the project from the git repository using any IDE
 2. As maven goals please put - clean:clean dependency:tree test surefire-report:report
-3. Go to Testcases folder/package
+3. Go to Testcases in /src/java/testcases folder/package
 4. Run Individual Test Case starting with name AcceptanceTest
+5. If AcceptanceTestSignup test will be executed first it will do signup creating new user id and new email and save it to test data
+sheet in testdata package in first sheet with name "signup"
+6. If AcceptanceTestLogin test will be executed first it will pick the test data (user id, password) from test data sheet created previously
+and stored in data sheet by test AcceptanceTestSignup
