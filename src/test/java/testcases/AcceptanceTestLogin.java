@@ -29,6 +29,7 @@ public class AcceptanceTestLogin {
     public void verifyLinkOnLoginAgain() throws IOException,BiffException,InterruptedException
     {
         HomePage.login(Driver.driver);
+        HomePage.verifyLogin(Driver.driver);
         MyGameDuellPage.logout(Driver.driver);
         HomePage.login(Driver.driver);
         HomePage.verifyLogin(Driver.driver);
