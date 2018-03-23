@@ -52,4 +52,5 @@ sheet in testdata package in first sheet with name "signup"
 and stored in data sheet by test AcceptanceTestSignup
 7. Browser to use to run test can be configured by putting in config.properties present in resources package
 file change to browser to Firefox, InternetExplorer or Chrome
+8.Refer Docs present in directory Docs for detailed about class and functions.
 
