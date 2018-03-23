@@ -19,17 +19,23 @@ public class HomePage {
     final static Logger logger = Logger.getLogger(Utility.class.getName());
     public static void clickOnNewUserLink(WebDriver driver) throws IOException
     {
-        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/span[3]/a[1]")).click();
-        logger.info("On Home Page");
-        Utility.captureScreenShot(driver,"HomePage");
-        WebElement newUserLink = driver.findElement(By.xpath("//*[@id=\"newHereLink\"]"));
-        newUserLink.click();
-        logger.info("Signup button clicked");
-        Utility.captureScreenShot(driver,"SignUp_Button_Clicked");
+        String xpathNewUSerLink = "/html/body/div[1]/div[1]/div/div/span[3]/a[1]";
+        if(Utility.existsElement(xpathNewUSerLink,driver))
+        {
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/span[3]/a[1]")).click();
+            logger.info("On Home Page");
+            Utility.captureScreenShot(driver,"HomePage");
+            WebElement newUserLink = driver.findElement(By.xpath("//*[@id=\"newHereLink\"]"));
+            newUserLink.click();
+            logger.info("New User LInk clicked");
+            Utility.captureScreenShot(driver,"NewUser_Link_Clicked");
+        }
+
     }
     public static void login(WebDriver driver) throws IOException,BiffException,InterruptedException
     {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[1]/div/div/span[3]/a[1]")));
         if(Utility.existsElement("/html/body/div[1]/div[1]/div/div/span[3]/a[1]",driver))
         {
             WebElement popup = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/span[3]/a[1]"));
@@ -75,5 +81,13 @@ public class HomePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(addItem));
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://my.gameduell.com/gd/emailManagement/emailValidation.xhtml" );
+    }
+
+    public static void verifyLogin(WebDriver driver)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        By addItem = By.id("mailInput");
+        wait.until(ExpectedConditions.presenceOfElementLocated(addItem));
+        Assert.assertEquals(Utility.isElementVisible(driver,addItem,Utility.ElementStatus.VISIBLE),Utility.ElementStatus.VISIBLE);
     }
 }

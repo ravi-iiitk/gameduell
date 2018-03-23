@@ -9,6 +9,7 @@ import org.junit.Test;
 import pageobjects.HomePage;
 import pageobjects.MyGameDuellPage;
 import pageobjects.RegistrationPage;
+import sun.security.ssl.HandshakeOutStream;
 
 import java.io.IOException;
 
@@ -30,6 +31,7 @@ public class AcceptanceTestLogin {
         HomePage.login(Driver.driver);
         MyGameDuellPage.logout(Driver.driver);
         HomePage.login(Driver.driver);
+        HomePage.verifyLogin(Driver.driver);
         HomePage.verifyURLOnReLogin(Driver.driver);
         MyGameDuellPage.logout(Driver.driver);
     }
