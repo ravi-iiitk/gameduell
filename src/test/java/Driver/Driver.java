@@ -40,13 +40,13 @@ public class Driver {
 				gecoFilePath = Utility.getFullPath(gecoFilePath);
 				System.setProperty("webdriver.gecko.driver", gecoFilePath);
 				driver = new FirefoxDriver();
-			} else if (browser.equalsIgnoreCase("chrome")) {
+			} else if (browser.equalsIgnoreCase("Chrome")) {
 				String chromDrvrPath = rpDrv.getPropValues("ChromeDriverPath");
 				chromDrvrPath = Utility.getFullPath(chromDrvrPath);
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath);
 				driver = new ChromeDriver();
-			} else if (browser.equalsIgnoreCase("IE")) {
+			} else if (browser.equalsIgnoreCase("InternetExplorer")) {
 				String ieDrvrPath = rpDrv.getPropValues("IEDriverPath");
 				ieDrvrPath = Utility.getFullPath(ieDrvrPath);
 				System.setProperty("webdriver.ie.driver",

@@ -50,3 +50,6 @@ It is very simple to run as mentioned below.
 sheet in testdata package in first sheet with name "signup"
 6. If AcceptanceTestLogin test will be executed first it will pick the test data (user id, password) from test data sheet created previously
 and stored in data sheet by test AcceptanceTestSignup
+7. Browser to use to run test can be configured by putting in config.properties present in resources package
+file change to browser to Firefox, InternetExplorer or Chrome
+
